@@ -1,8 +1,29 @@
 {
   "name": "iserv/zeit-bridge",
+  "description": "Integrates the Zeit library into Symfony",
   "type": "library",
   "require": {
-    "php": ">=7.3"
+    "php": ">=7.3",
+    "doctrine/dbal": "2.*",
+    "iserv/zeit": "1.0-RC1",
+    "symfony/form": "4.4.*|5.*"
+  },
+  "replace": {
+    "symfony/polyfill-apcu": "*",
+    "symfony/polyfill-ctype": "*",
+    "symfony/polyfill-iconv": "*",
+    "symfony/polyfill-intl-grapheme": "*",
+    "symfony/polyfill-intl-icu": "*",
+    "symfony/polyfill-intl-idn": "*",
+    "symfony/polyfill-intl-messageformatter": "*",
+    "symfony/polyfill-intl-normalizer": "*",
+    "symfony/polyfill-mbstring": "*",
+    "symfony/polyfill-php56": "*",
+    "symfony/polyfill-php70": "*",
+    "symfony/polyfill-php71": "*",
+    "symfony/polyfill-php72": "*",
+    "symfony/polyfill-php73": "*",
+    "paragonie/random_compat": "*"
   },
   "autoload": {
     "psr-4": {
@@ -16,6 +37,15 @@
     }
   ],
   "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
     "sort-packages": true
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": false,
+      "require": "4.4.*"
+    }
   }
 }
