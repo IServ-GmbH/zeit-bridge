@@ -1,8 +1,12 @@
 {
   "name": "iserv/zeit-bridge",
+  "description": "Integrates the Zeit library into Symfony",
   "type": "library",
   "require": {
-    "php": ">=7.3"
+    "php": ">=7.3",
+    "doctrine/dbal": "2.*",
+    "iserv/zeit": "1.0-RC1",
+    "symfony/form": "4.4.*|5.*"
   },
   "autoload": {
     "psr-4": {
@@ -16,6 +20,15 @@
     }
   ],
   "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
     "sort-packages": true
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": false,
+      "require": "4.4.*"
+    }
   }
 }
