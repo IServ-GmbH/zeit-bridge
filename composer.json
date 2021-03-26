@@ -1,0 +1,21 @@
+{
+  "name": "iserv/zeit-bridge",
+  "type": "library",
+  "require": {
+    "php": ">=7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "IServ\\Bridge\\Zeit\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.iserv.eu"
+    }
+  ],
+  "config": {
+    "sort-packages": true
+  }
+}
