@@ -5,7 +5,7 @@
   "require": {
     "php": ">=7.3",
     "doctrine/dbal": "2.*",
-    "iserv/zeit": "^1.0-RC3",
+    "iserv/zeit": "^1.0",
     "symfony/form": "4.4.*|5.*"
   },
   "autoload": {
