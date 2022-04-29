@@ -17,10 +17,8 @@ final class ZeitTimeType extends AbstractType implements DataTransformerInterfac
 {
     /**
      * {@inheritDoc}
-     *
-     * @return void
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->addModelTransformer($this);
     }
@@ -28,7 +26,7 @@ final class ZeitTimeType extends AbstractType implements DataTransformerInterfac
     /**
      * {@inheritDoc}
      */
-    public function getParent()
+    public function getParent(): ?string
     {
         return TimeType::class;
     }
@@ -36,7 +34,7 @@ final class ZeitTimeType extends AbstractType implements DataTransformerInterfac
     /**
      * {@inheritDoc}
      */
-    public function transform($value)
+    public function transform(mixed $value): mixed
     {
         if ($value instanceof Time) {
             return $value->toDateTime();
@@ -48,7 +46,7 @@ final class ZeitTimeType extends AbstractType implements DataTransformerInterfac
     /**
      * {@inheritDoc}
      */
-    public function reverseTransform($value)
+    public function reverseTransform(mixed $value): mixed
     {
         if ($value instanceof \DateTimeInterface) {
             return Time::fromDateTime($value);

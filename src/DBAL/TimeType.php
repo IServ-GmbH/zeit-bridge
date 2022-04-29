@@ -15,7 +15,7 @@ final class TimeType extends Type
     /**
      * {@inheritDoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'zeit_time';
     }
@@ -25,7 +25,7 @@ final class TimeType extends Type
      *
      * @throws Exception
      */
-    public function getSQLDeclaration(array $column, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
         return $platform->getTimeTypeDeclarationSQL($column);
     }
@@ -35,7 +35,7 @@ final class TimeType extends Type
      *
      * @throws ConversionException
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
     {
         if (null === $value) {
             return null;
@@ -53,7 +53,7 @@ final class TimeType extends Type
      *
      * @throws ConversionException
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue($value, AbstractPlatform $platform): mixed
     {
         if (null === $value || $value instanceof Time) {
             return $value;
