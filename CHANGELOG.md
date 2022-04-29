@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ## [Unreleased]
 
+### Changed
+
+- Resolved Symfony deprecations regarding typehints. #49286
+
 ## 1.0 - 2021-04-30
 
 ### Added

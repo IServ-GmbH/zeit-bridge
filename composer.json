@@ -3,8 +3,8 @@
   "description": "Integrates the Zeit library into Symfony",
   "type": "library",
   "require": {
-    "php": ">=7.3",
-    "doctrine/dbal": "2.*",
+    "php": ">=8.0",
+    "doctrine/dbal": "^2.6",
     "iserv/zeit": "^1.0",
     "symfony/form": "4.4.*|5.*"
   },
@@ -29,6 +29,12 @@
     "symfony": {
       "allow-contrib": false,
       "require": "4.4.*|5."
+    },
+    "cotor": {
+      "friendsofphp/php-cs-fixer": "^3.8",
+      "phpstan/phpstan": "^1.6",
+      "phpunit/phpunit": "^9.5",
+      "vimeo/psalm": "^4.22"
     }
   }
 }

@@ -1,8 +1,7 @@
 /vendor/
 reports/
 coverage/
-tools/
-.php_cs.cache
+.php-cs-fixer.cache
 .phpunit.cache/
 composer.lock
 
