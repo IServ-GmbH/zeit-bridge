@@ -1,35 +1,23 @@
 {
   "name": "iserv/zeit-bridge",
   "description": "Integrates the Zeit library into Symfony",
+  "license": "MIT",
   "type": "library",
   "require": {
-    "php": ">=8.0",
+    "php": ">=8.1",
     "doctrine/dbal": "^2.6",
-    "iserv/zeit": "^1.0",
-    "symfony/form": "4.4.*|5.*"
+    "iserv/zeit": "^1.1",
+    "symfony/form": "^4.4 || ^5.0"
   },
   "autoload": {
     "psr-4": {
       "IServ\\Bridge\\Zeit\\": "src/"
     }
   },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://composer.iserv.eu"
-    }
-  ],
   "config": {
-    "preferred-install": {
-      "*": "dist"
-    },
     "sort-packages": true
   },
   "extra": {
-    "symfony": {
-      "allow-contrib": false,
-      "require": "4.4.*|5."
-    },
     "cotor": {
       "friendsofphp/php-cs-fixer": "^3.8",
       "phpstan/phpstan": "^1.6",
