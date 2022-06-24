@@ -1,11 +1,8 @@
 # IServ Zeit-Bridge Library
 
-[![coverage report](https://git.iserv.eu/iserv/lib/zeit-bridge/badges/master/coverage.svg)](https://git.iserv.eu/iserv/lib/zeit/commits/master)
-[![pipeline status](https://git.iserv.eu/iserv/lib/zeit-bridge/badges/master/pipeline.svg)](https://git.iserv.eu/iserv/lib/zeit/commits/master)
-
 ## Basics
 
-The library integrates the Date and Time domain objects from the [Zeit](https://git.iserv.eu/iserv/lib/zeit) library into Doctrine and Symfony.
+The library integrates the Date and Time domain objects from the [Zeit](https://github.com/IServ-GmbH/zeit) library into Doctrine and Symfony.
 
 ## Usage
 
