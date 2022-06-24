@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ## [Unreleased]
 
+## 1.1 - 2022-06-24
+
 ### Changed
 
 - Modernized and added license. #50423
