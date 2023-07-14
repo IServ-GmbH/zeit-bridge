@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ## [Unreleased]
 
+### Fixed
+
+- PHP files are no longer executable. #65214
+
 ## 1.1 - 2022-06-24
 
 ### Changed
