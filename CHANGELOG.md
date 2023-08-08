@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ## [Unreleased]
 
+### Added
+
+- Added support for DBAL 3. #65656
+
+### Removed
+
+- Removed support for Symfony 4.
+
 ## 1.2 - 2023-07-14
 
 ### Fixed
