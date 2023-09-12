@@ -12,6 +12,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * The ZeitDateType converts the Zeit model in/from DateTime to be usable with the regular DateType.
+ *
+ * @implements DataTransformerInterface<Date, \DateTimeImmutable>
  */
 final class ZeitDateType extends AbstractType implements DataTransformerInterface
 {
