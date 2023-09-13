@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ## [Unreleased]
 
+## 1.4 - 2023-09-13
+
 ### Added
 
 - Added support for Symfony 6. #63141
