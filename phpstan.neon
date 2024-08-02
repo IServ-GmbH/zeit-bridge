@@ -4,4 +4,5 @@ parameters:
     level: max
     inferPrivatePropertyTypeFromConstructor: true
     reportUnmatchedIgnoredErrors: false
-
+    ignoreErrors:
+        - '#^Call to an undefined static method Doctrine\\DBAL\\Types\\ConversionException\:\:#'

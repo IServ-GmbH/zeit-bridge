@@ -7,6 +7,9 @@ namespace IServ\Bridge\Zeit\DBAL;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
+use Doctrine\DBAL\Types\Exception\InvalidFormat;
+use Doctrine\DBAL\Types\Exception\InvalidType;
+use Doctrine\DBAL\Types\Exception\ValueNotConvertible;
 use Doctrine\DBAL\Types\Type;
 use IServ\Library\Zeit\Date;
 
@@ -42,7 +45,15 @@ final class DateType extends Type
         }
 
         if (!$value instanceof Date) {
-            throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', Date::class]);
+            if (class_exists(InvalidType::class)) {
+                throw InvalidType::new($value, $this->getName(), ['null', Date::class]);
+            } else {
+                /**
+                 * @noinspection PhpUndefinedMethodInspection
+                 * @psalm-suppress UndefinedMethod
+                 */
+                throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', Date::class]);
+            }
         }
 
         $value = $this->fixBeforeConvertToDatabaseValue($value);
@@ -62,7 +73,15 @@ final class DateType extends Type
         }
 
         if (!is_string($value)) {
-            throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', 'string']);
+            if (class_exists(InvalidType::class)) {
+                throw InvalidType::new($value, $this->getName(), ['null', 'string']);
+            } else {
+                /**
+                 * @noinspection PhpUndefinedMethodInspection
+                 * @psalm-suppress UndefinedMethod
+                 */
+                throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', 'string']);
+            }
         }
 
         $value = $this->fixBeforeConvertToPHPValue($value);
@@ -77,13 +96,33 @@ final class DateType extends Type
         $dateTime = \DateTimeImmutable::createFromFormat('!' . $platform->getDateFormatString(), $value);
 
         if (!$dateTime) {
-            throw ConversionException::conversionFailedFormat($value, $this->getName(), $platform->getDateFormatString());
+            if (class_exists(InvalidFormat::class)) {
+                throw InvalidFormat::new($value, $this->getName(), $platform->getDateFormatString());
+            } else {
+                /**
+                 * @noinspection PhpUndefinedMethodInspection
+                 * @psalm-suppress UndefinedMethod
+                 */
+                throw ConversionException::conversionFailedFormat(
+                    $value,
+                    $this->getName(),
+                    $platform->getDateFormatString()
+                );
+            }
         }
 
         try {
             return Date::fromParts(($isBC ? '-' : '') . $dateTime->format('Y'), $dateTime->format('m'), $dateTime->format('d'));
         } catch (\InvalidArgumentException $e) {
-            throw ConversionException::conversionFailed($value, $this->getName(), $e);
+            if (class_exists(ValueNotConvertible::class)) {
+                throw ValueNotConvertible::new($value, $this->getName(), previous: $e);
+            } else {
+                /**
+                 * @noinspection PhpUndefinedMethodInspection
+                 * @psalm-suppress UndefinedMethod
+                 */
+                throw ConversionException::conversionFailed($value, $this->getName(), $e);
+            }
         }
     }
 

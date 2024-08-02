@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ## [Unreleased]
 
+### Added
+
+- Added support for DBAL 4. #72288
+
 ## 1.4 - 2023-09-13
 
 ### Added
