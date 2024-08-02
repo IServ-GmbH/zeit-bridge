@@ -7,6 +7,7 @@ namespace IServ\Bridge\Zeit\Tests\Unit\DBAL;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Platforms\PostgreSQL100Platform;
+use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use IServ\Bridge\Zeit\DBAL\DateType;
 use IServ\Library\Zeit\Date;
@@ -85,6 +86,12 @@ final class DateTypeTest extends TestCase
 
     private function getPlatform(): AbstractPlatform
     {
-        return new PostgreSQL100Platform();
+        /** @noinspection PhpUndefinedClassInspection */
+        if (class_exists(PostgreSQL100Platform::class)) {
+            /** @noinspection PhpIncompatibleReturnTypeInspection */
+            return new PostgreSQL100Platform();
+        }
+
+        return new PostgreSQLPlatform();
     }
 }
