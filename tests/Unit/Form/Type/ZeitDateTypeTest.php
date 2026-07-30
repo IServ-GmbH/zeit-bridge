@@ -6,14 +6,14 @@ namespace IServ\Bridge\Zeit\Tests\Unit\Form\Type;
 
 use IServ\Bridge\Zeit\Form\Type\ZeitDateType;
 use IServ\Library\Zeit\Date;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
-/**
- * @covers \IServ\Bridge\Zeit\Form\Type\ZeitDateType
- * @uses \IServ\Library\Zeit\Date
- */
+#[CoversClass(ZeitDateType::class)]
+#[UsesClass(Date::class)]
 final class ZeitDateTypeTest extends TypeTestCase
 {
     public function testType(): void
