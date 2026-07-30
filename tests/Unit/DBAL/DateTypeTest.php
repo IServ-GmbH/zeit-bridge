@@ -11,12 +11,12 @@ use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use IServ\Bridge\Zeit\DBAL\DateType;
 use IServ\Library\Zeit\Date;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \IServ\Bridge\Zeit\DBAL\DateType
- * @uses \IServ\Library\Zeit\Date
- */
+#[CoversClass(DateType::class)]
+#[UsesClass(Date::class)]
 final class DateTypeTest extends TestCase
 {
     /**
