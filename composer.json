@@ -22,7 +22,7 @@
       "friendsofphp/php-cs-fixer": "^3.95",
       "phpstan/phpstan": "^2.3",
       "phpunit/phpunit": "^11.5",
-      "vimeo/psalm": "^6.0"
+      "vimeo/psalm": "^7.2"
     }
   }
 }
