@@ -13,6 +13,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  * The ZeitTimeType converts the Zeit model in/from DateTime to be usable with the regular TimeType.
  *
+ * @api
  * @phpstan-implements DataTransformerInterface<Time, \DateTimeImmutable>
  */
 final class ZeitTimeType extends AbstractType implements DataTransformerInterface
@@ -20,6 +21,7 @@ final class ZeitTimeType extends AbstractType implements DataTransformerInterfac
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->addModelTransformer($this);
@@ -28,7 +30,8 @@ final class ZeitTimeType extends AbstractType implements DataTransformerInterfac
     /**
      * {@inheritDoc}
      */
-    public function getParent(): ?string
+    #[\Override]
+    public function getParent(): string
     {
         return TimeType::class;
     }
@@ -36,6 +39,7 @@ final class ZeitTimeType extends AbstractType implements DataTransformerInterfac
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function transform(mixed $value): mixed
     {
         if ($value instanceof Time) {
@@ -48,6 +52,7 @@ final class ZeitTimeType extends AbstractType implements DataTransformerInterfac
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function reverseTransform(mixed $value): mixed
     {
         if ($value instanceof \DateTimeInterface) {

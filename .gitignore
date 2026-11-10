@@ -3,7 +3,7 @@ reports/
 coverage/
 .php-cs-fixer.cache
 .phpunit.cache/
-composer.lock
+/composer.lock
 
 
 .idea/workspace.xml
