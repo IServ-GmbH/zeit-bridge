@@ -13,6 +13,9 @@ use Doctrine\DBAL\Types\Exception\ValueNotConvertible;
 use Doctrine\DBAL\Types\Type;
 use IServ\Library\Zeit\Time;
 
+/**
+ * @api
+ */
 final class TimeType extends Type
 {
     /**
@@ -28,6 +31,7 @@ final class TimeType extends Type
      *
      * @throws Exception
      */
+    #[\Override]
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
         return $platform->getTimeTypeDeclarationSQL($column);
@@ -38,6 +42,7 @@ final class TimeType extends Type
      *
      * @throws ConversionException
      */
+    #[\Override]
     public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
     {
         if (null === $value) {
@@ -54,6 +59,7 @@ final class TimeType extends Type
             /**
              * @noinspection PhpUndefinedMethodInspection
              * @psalm-suppress UndefinedMethod
+             * @phpstan-ignore throw.notThrowable
              */
             throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', Time::class]);
         }
@@ -64,6 +70,7 @@ final class TimeType extends Type
      *
      * @throws ConversionException
      */
+    #[\Override]
     public function convertToPHPValue($value, AbstractPlatform $platform): mixed
     {
         if (null === $value || $value instanceof Time) {
@@ -77,6 +84,7 @@ final class TimeType extends Type
                 /**
                  * @noinspection PhpUndefinedMethodInspection
                  * @psalm-suppress UndefinedMethod
+                 * @phpstan-ignore throw.notThrowable
                  */
                 throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', 'string']);
             }
@@ -91,6 +99,7 @@ final class TimeType extends Type
                 /**
                  * @noinspection PhpUndefinedMethodInspection
                  * @psalm-suppress UndefinedMethod
+                 * @phpstan-ignore throw.notThrowable
                  */
                 throw ConversionException::conversionFailedFormat(
                     $value,
@@ -109,6 +118,7 @@ final class TimeType extends Type
                 /**
                  * @noinspection PhpUndefinedMethodInspection
                  * @psalm-suppress UndefinedMethod
+                 * @phpstan-ignore throw.notThrowable
                  */
                 throw ConversionException::conversionFailed($value, $this->getName(), $e);
             }

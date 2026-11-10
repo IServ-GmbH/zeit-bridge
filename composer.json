@@ -19,10 +19,10 @@
   },
   "extra": {
     "cotor": {
-      "friendsofphp/php-cs-fixer": "^3.26",
-      "phpstan/phpstan": "^1.10",
-      "phpunit/phpunit": "^9.5",
-      "vimeo/psalm": "^5.10"
+      "friendsofphp/php-cs-fixer": "^3.95",
+      "phpstan/phpstan": "^2.3",
+      "phpunit/phpunit": "^11.5",
+      "vimeo/psalm": "^6.0"
     }
   }
 }
